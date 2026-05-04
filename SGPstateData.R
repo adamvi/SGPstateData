@@ -6268,69 +6268,24 @@ SGPstateData[["MS"]][["SGP_Norm_Group_Preference"]] <- MS_SGP_Norm_Group_Prefere
 #########################################################
 ### MISSOURI
 #########################################################
+load("Knots_Boundaries/MO_Knots_Boundaries.Rdata")
+SGPstateData[["MO"]][["Achievement"]][["Knots_Boundaries"]] <- MO_Knots_Boundaries
 
-#load("CSEM/Missouri/Missouri_CSEM.Rdata")
-SGPstateData[["MO"]][["Achievement"]][["Knots_Boundaries"]] <-
-	list(
-		COMMUNICATION_ARTS=list(
-			boundaries_3=c(451.65, 793.35),
-			boundaries_4=c(466.50, 823.50),
-			boundaries_5=c(481.45, 843.55),
-			boundaries_6=c(501.50, 858.50),
-			boundaries_7=c(511.50, 868.50),
-			boundaries_8=c(526.55, 878.45),
-			knots_3=c(612, 633, 649, 668),
-			knots_4=c(630, 650, 666, 684),
-			knots_5=c(646, 665, 680, 698),
-			knots_6=c(646, 665, 679, 695),
-			knots_7=c(647, 668, 685, 702),
-			knots_8=c(662, 683, 699, 717),
-			loss.hoss_3=c(455, 790),
-			loss.hoss_4=c(470, 820),
-			loss.hoss_5=c(485, 840),
-			loss.hoss_6=c(505, 855),
-			loss.hoss_7=c(515, 865),
-			loss.hoss_8=c(530, 875),
-			loss.hoss_11=c(545, 885)),
-		MATHEMATICS=list(
-			boundaries_3=c(446.70, 783.30),
-			boundaries_4=c(461.60, 808.40),
-			boundaries_5=c(476.50, 833.50),
-			boundaries_6=c(491.50, 848.50),
-			boundaries_7=c(506.50, 863.50),
-			boundaries_8=c(521.40, 888.60),
-			knots_3=c(593, 614, 631, 651),
-			knots_4=c(618, 638, 654, 672),
-			knots_5=c(631, 654, 673, 693),
-			knots_6=c(646, 669, 688, 708),
-			knots_7=c(647, 671, 690, 711),
-			knots_8=c(669, 693, 711, 732),
-			loss.hoss_3=c(450, 780),
-			loss.hoss_4=c(465, 805),
-			loss.hoss_5=c(480, 830),
-			loss.hoss_6=c(495, 845),
-			loss.hoss_7=c(510, 860),
-			loss.hoss_8=c(525, 885),
-			loss.hoss_10=c(555, 910)))
-
-SGPstateData[["MO"]][["Achievement"]][["Cutscores"]] <-
-	list(
-		COMMUNICATION_ARTS=list(
-			GRADE_3=c(592, 648, 673),
-			GRADE_4=c(612, 662, 691),
-			GRADE_5=c(625, 675, 702),
-			GRADE_6=c(631, 676, 704),
-			GRADE_7=c(634, 680, 712),
-			GRADE_8=c(639, 696, 723),
-			GRADE_11=c(679, 725, 753)),
-		MATHEMATICS=list(
-			GRADE_3=c(568, 628, 667),
-			GRADE_4=c(596, 651, 688),
-			GRADE_5=c(605, 668, 706),
-			GRADE_6=c(628, 681, 721),
-			GRADE_7=c(640, 685, 724),
-			GRADE_8=c(670, 710, 741),
-			GRADE_10=c(695, 738, 785)))
+SGPstateData[["MO"]][["Achievement"]][["Cutscores"]]<- list(
+	MATHEMATICS=list(
+		GRADE_3=c(326, 362, 390),
+		GRADE_4=c(358, 387, 413),
+		GRADE_5=c(377, 410, 435),
+		GRADE_6=c(388, 417, 438),
+		GRADE_7=c(394, 435, 462),
+		GRADE_8=c(420, 468, 506)),
+	ELA=list(
+		GRADE_3=c(331, 364, 395),
+		GRADE_4=c(337, 388, 419),
+		GRADE_5=c(351, 403, 431),
+		GRADE_6=c(371, 413, 438),
+		GRADE_7=c(384, 435, 456),
+		GRADE_8=c(393, 443, 476)))
 
 SGPstateData[["MO"]][["Achievement"]][["Levels"]] <-
 	list(
@@ -6356,24 +6311,20 @@ SGPstateData[["MO"]][["Assessment_Program_Information"]] <-
 			URL="www.dese.mo.gov/MOSIS/MCDS_pilot-student-growth.html",
 			Contact="573-751-4212"),
 		Content_Areas=c("Mathematics", "Communication Arts"),
-		Grades_Tested=c(3,4,5,6,7,8,10,11),
+		Grades_Tested=c(3,4,5,6,7,8),
 		Test_Season="Spring",
-		Test_Vendor="CTB/McGraw Hill")
-#		CSEM=Missouri_CSEM)
+		Test_Vendor="DRC")
 
 SGPstateData[["MO"]][["Student_Report_Information"]] <-
 	list(
-		Vertical_Scale=list(MATHEMATICS=TRUE, COMMUNICATION_ARTS=TRUE),
-		Content_Areas_Labels=list(MATHEMATICS="Math", COMMUNICATION_ARTS="Comm Arts"),
-		Grades_Reported=list(MATHEMATICS=c(3,4,5,6,7,8), COMMUNICATION_ARTS=c(3,4,5,6,7,8)),
+		Vertical_Scale=list(MATHEMATICS=TRUE, ELA=TRUE),
+		Content_Areas_Labels=list(MATHEMATICS="Math", ELA="ELA"),
+		Grades_Reported=list(MATHEMATICS=c(3,4,5,6,7,8), ELA=c(3,4,5,6,7,8)),
 		Achievement_Level_Labels=list(
 			"Below Basic"="Below Basic",
 			"Basic"="Basic",
 			"Proficient"="Proficient",
 			"Advanced"="Advanced"))
-
-SGPstateData[["MO"]][["SGP_Configuration"]] <- list(state.multiple.year.summary=5)
-
 
 #########################################################
 ### NCSC (National Center and State Collaborative) South Dakota
