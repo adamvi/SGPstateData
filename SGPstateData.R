@@ -6310,7 +6310,7 @@ SGPstateData[["MO"]][["Assessment_Program_Information"]] <-
 			Abbreviation="MDESE",
 			URL="www.dese.mo.gov/MOSIS/MCDS_pilot-student-growth.html",
 			Contact="573-751-4212"),
-		Content_Areas=c("Mathematics", "Communication Arts"),
+		Content_Areas=c("Mathematics", "ELA"),
 		Grades_Tested=c(3,4,5,6,7,8),
 		Test_Season="Spring",
 		Test_Vendor="DRC")
