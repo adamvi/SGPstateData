@@ -7650,7 +7650,8 @@ SGPstateData[["NM"]][["Assessment_Program_Information"]] <-
 		Grades_Tested=c(3,4,5,6,7,8),
 		Assessment_Years=c("2022", "2023", "2024"),
 		Test_Season="Spring",
-		Test_Vendor="Cambium")
+		Test_Vendor="Cambium",
+		CSEM="SCALE_SCORE_CSEM")
 
 SGPstateData[["NM"]][["Student_Report_Information"]] <-
 	list(
@@ -7667,6 +7668,13 @@ SGPstateData[["NM"]][["Student_Report_Information"]] <-
 			"Near Proficient"="Nearing Proficiency",
 			"Proficient"="Proficient",
 			"Advanced"="Advanced"))
+
+SGPstateData[["NM"]][["SGP_Configuration"]] <- list(
+	round.digits=6L,
+	return.norm.group.scale.scores=TRUE,
+	print.other.gp=TRUE,
+	sgp.loss.hoss.adjustment="NM"
+)
 
 SGPstateData[["NM"]][["Variable_Name_Lookup"]] <- read.csv("Variable_Name_Lookup/NM_Variable_Name_Lookup.csv", colClasses=c(rep("character",4), "logical"))
 
