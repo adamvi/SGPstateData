@@ -4727,30 +4727,47 @@ SGPstateData[["IA"]][["Student_Report_Information"]] <- list(
 #########################################################
 
 load("Knots_Boundaries/KS_Knots_Boundaries.Rdata")
-SGPstateData[["KS"]][["Achievement"]][["Knots_Boundaries"]] <- KS_Knots_Boundaries
+load("Knots_Boundaries/KS_Knots_Boundaries_2025.Rdata")
+SGPstateData[["KS"]][["Achievement"]][["Knots_Boundaries"]] <- c(KS_Knots_Boundaries, KS_Knots_Boundaries_2025)
 
 SGPstateData[["KS"]][["Achievement"]][["Cutscores"]] <-
 	list(
 		MATHEMATICS=list(
-			GRADE_3=c(58, 70, 85, 93),
-			GRADE_4=c(54, 63, 80, 89),
-			GRADE_5=c(54, 62, 78, 88),
-			GRADE_6=c(53, 63, 79, 90),
-			GRADE_7=c(44, 56, 71, 84),
-			GRADE_8=c(45, 58, 73, 86),
-			GRADE_11=c(38, 50, 68, 82)),
-		READING=list(
-			GRADE_3=c(55, 67, 80, 89),
-			GRADE_4=c(57, 68, 81, 89),
-			GRADE_5=c(57, 68, 80, 88),
-			GRADE_6=c(52, 64, 79, 88),
-			GRADE_7=c(50, 63, 77, 87),
-			GRADE_8=c(50, 64, 79, 89),
-			GRADE_11=c(54, 68, 81, 89)))
+			GRADE_3 = c(276, 300, 329),
+			GRADE_4 = c(266, 300, 331),
+			GRADE_5 = c(273, 300, 326),
+			GRADE_6 = c(273, 300, 329),
+			GRADE_7 = c(266, 300, 342),
+			GRADE_8 = c(274, 300, 336),
+			GRADE_10 = c(273, 300, 329)),
+		MATHEMATICS.2025=list(
+			GRADE_3=c(510, 540, 570),
+			GRADE_4=c(510, 540, 579),
+			GRADE_5=c(510, 540, 599),
+			GRADE_6=c(510, 540, 596),
+			GRADE_7=c(510, 540, 603),
+			GRADE_8=c(510, 540, 594),
+			GRADE_10=c(510, 540, 600)),
+		ELA=list(
+			GRADE_3 = c(276, 300, 327),
+			GRADE_4 = c(271, 300, 335),
+			GRADE_5 = c(275, 300, 326),
+			GRADE_6 = c(277, 300, 336),
+			GRADE_7 = c(275, 300, 335),
+			GRADE_8 = c(265, 300, 334),
+			GRADE_10 = c(269, 300, 334)),
+		ELA.2025=list(
+			GRADE_3=c(510, 540, 609),
+			GRADE_4=c(510, 540, 607),
+			GRADE_5=c(510, 540, 600),
+			GRADE_6=c(510, 540, 593),
+			GRADE_7=c(510, 540, 600),
+			GRADE_8=c(510, 540, 594),
+			GRADE_10=c(510, 540, 588)))
 
 SGPstateData[["KS"]][["Achievement"]][["Levels"]] <- list(
-	Labels=c("Academic Warning (Unsatisfactory)", "Approaching Standard (Basic)", "Meets Standard (Proficient)", "Exceeds Standard (Advanced)", "Exemplary", "Not Tested or Missing"),
-	Proficient=c("Not Proficient", "Not Proficient", "Proficient", "Proficient", "Proficient", NA))
+	Labels=c("Academic Warning", "Approaching Standard", "Meets Standard", "Exceeds Standard", "Not Tested"),
+	Proficient=c("Not Proficient", "Not Proficient", "Proficient", "Proficient", NA))
 
 SGPstateData[["KS"]][["Growth"]][["Levels"]] <- c("Low", "Typical", "High")
 
@@ -4761,34 +4778,25 @@ SGPstateData[["KS"]][["Growth"]][["Cutscores"]] <- list(
 	Labels=c("1st - 34th", "35th - 65th", "66th - 99th"))
 
 SGPstateData[["KS"]][["Assessment_Program_Information"]] <- list(
-	Assessment_Name="Kansas General Education Assessments",
-	Assessment_Abbreviation="KS-GEA",
-	Content_Areas=c("Mathematics", "Reading"),
-	Grades_Tested=c(3,4,5,6,7,8,11),
+	Assessment_Name="Kansas Assessment Program",
+	Assessment_Abbreviation="KAP",
+	Content_Areas=c("Mathematics", "ELA"),
+	Grades_Tested=c(3,4,5,6,7,8,10),
 	Test_Season="Spring",
-	Assessment_Years=c("2005_2006", "2006_2007", "2007_2008", "2008_2009", "2009_2010", "2010_2011", "2011_2012", "2012_2013", "2013_2014", "2014_2015", "2015_2016"),
+#	Assessment_Years=c("2005_2006", "2006_2007", "2007_2008", "2008_2009", "2009_2010", "2010_2011", "2011_2012", "2012_2013", "2013_2014", "2014_2015", "2015_2016"),
+	Assessment_Years=c("2016", "2017", "2018", "2019", "2021", "2022", "2023", "2024", "2025"),
 	Test_Vendor="The Center for Educational Testing and Evaluation (CETE) at The University of Kansas")
 ######  Grades and Assessment Years need to be verified - based on Sheng's sample data
 
 SGPstateData[["KS"]][["Student_Report_Information"]] <- list(
-	Transformed_Achievement_Level_Cutscores=list(
-									MATHEMATICS=paste(2005:2015, 2006:2018, sep="_"),
-									READING=paste(2005:2015, 2006:2018, sep="_")),
-	Transformed_Achievement_Level_Cutscores_gaPlot=list(
-									MATHEMATICS=paste(2005:2015, 2006:2018, sep="_"),
-									READING=paste(2005:2015, 2006:2018, sep="_")),
-	Vertical_Scale=list(MATHEMATICS=FALSE, READING=FALSE),
-	Content_Areas_Labels=list(MATHEMATICS="Math", READING="Reading"),
-	Grades_Reported=list(MATHEMATICS=c(3,4,5,6,7,8,11), READING=c(3,4,5,6,7,8,11)),
+	Vertical_Scale=list(MATHEMATICS=FALSE, ELA=FALSE),
+	Content_Areas_Labels=list(MATHEMATICS="Math", ELA="ELA"),
+	Grades_Reported=list(MATHEMATICS=c(3,4,5,6,7,8,10), ELA=c(3,4,5,6,7,8,10)),
 	Achievement_Level_Labels=list(
-		"Warning"="Academic Warning (Unsatisfactory)",
-		"Approaches"="Approaching Standard (Basic)",
-		"Meets"="Meets Standard (Proficient)",
-		"Exceeds"="Exceeds Standard (Advanced)",
-		"Exemplary"="Exemplary"))
-
-SGPstateData[["AOB"]][["Variable_Name_Lookup"]] <- read.csv("Variable_Name_Lookup/AOB_Variable_Name_Lookup.csv", colClasses=c(rep("character",4), "logical"))
-
+		"Warning"="Academic Warning",
+		"Approaches"="Approaching Standard",
+		"Meets"="Meets Standard",
+		"Exceeds"="Exceeds Standard"))
 
 #########################################################
 ### KENTUCKY
@@ -6260,69 +6268,24 @@ SGPstateData[["MS"]][["SGP_Norm_Group_Preference"]] <- MS_SGP_Norm_Group_Prefere
 #########################################################
 ### MISSOURI
 #########################################################
+load("Knots_Boundaries/MO_Knots_Boundaries.Rdata")
+SGPstateData[["MO"]][["Achievement"]][["Knots_Boundaries"]] <- MO_Knots_Boundaries
 
-#load("CSEM/Missouri/Missouri_CSEM.Rdata")
-SGPstateData[["MO"]][["Achievement"]][["Knots_Boundaries"]] <-
-	list(
-		COMMUNICATION_ARTS=list(
-			boundaries_3=c(451.65, 793.35),
-			boundaries_4=c(466.50, 823.50),
-			boundaries_5=c(481.45, 843.55),
-			boundaries_6=c(501.50, 858.50),
-			boundaries_7=c(511.50, 868.50),
-			boundaries_8=c(526.55, 878.45),
-			knots_3=c(612, 633, 649, 668),
-			knots_4=c(630, 650, 666, 684),
-			knots_5=c(646, 665, 680, 698),
-			knots_6=c(646, 665, 679, 695),
-			knots_7=c(647, 668, 685, 702),
-			knots_8=c(662, 683, 699, 717),
-			loss.hoss_3=c(455, 790),
-			loss.hoss_4=c(470, 820),
-			loss.hoss_5=c(485, 840),
-			loss.hoss_6=c(505, 855),
-			loss.hoss_7=c(515, 865),
-			loss.hoss_8=c(530, 875),
-			loss.hoss_11=c(545, 885)),
-		MATHEMATICS=list(
-			boundaries_3=c(446.70, 783.30),
-			boundaries_4=c(461.60, 808.40),
-			boundaries_5=c(476.50, 833.50),
-			boundaries_6=c(491.50, 848.50),
-			boundaries_7=c(506.50, 863.50),
-			boundaries_8=c(521.40, 888.60),
-			knots_3=c(593, 614, 631, 651),
-			knots_4=c(618, 638, 654, 672),
-			knots_5=c(631, 654, 673, 693),
-			knots_6=c(646, 669, 688, 708),
-			knots_7=c(647, 671, 690, 711),
-			knots_8=c(669, 693, 711, 732),
-			loss.hoss_3=c(450, 780),
-			loss.hoss_4=c(465, 805),
-			loss.hoss_5=c(480, 830),
-			loss.hoss_6=c(495, 845),
-			loss.hoss_7=c(510, 860),
-			loss.hoss_8=c(525, 885),
-			loss.hoss_10=c(555, 910)))
-
-SGPstateData[["MO"]][["Achievement"]][["Cutscores"]] <-
-	list(
-		COMMUNICATION_ARTS=list(
-			GRADE_3=c(592, 648, 673),
-			GRADE_4=c(612, 662, 691),
-			GRADE_5=c(625, 675, 702),
-			GRADE_6=c(631, 676, 704),
-			GRADE_7=c(634, 680, 712),
-			GRADE_8=c(639, 696, 723),
-			GRADE_11=c(679, 725, 753)),
-		MATHEMATICS=list(
-			GRADE_3=c(568, 628, 667),
-			GRADE_4=c(596, 651, 688),
-			GRADE_5=c(605, 668, 706),
-			GRADE_6=c(628, 681, 721),
-			GRADE_7=c(640, 685, 724),
-			GRADE_8=c(670, 710, 741),
-			GRADE_10=c(695, 738, 785)))
+SGPstateData[["MO"]][["Achievement"]][["Cutscores"]]<- list(
+	MATHEMATICS=list(
+		GRADE_3=c(326, 362, 390),
+		GRADE_4=c(358, 387, 413),
+		GRADE_5=c(377, 410, 435),
+		GRADE_6=c(388, 417, 438),
+		GRADE_7=c(394, 435, 462),
+		GRADE_8=c(420, 468, 506)),
+	ELA=list(
+		GRADE_3=c(331, 364, 395),
+		GRADE_4=c(337, 388, 419),
+		GRADE_5=c(351, 403, 431),
+		GRADE_6=c(371, 413, 438),
+		GRADE_7=c(384, 435, 456),
+		GRADE_8=c(393, 443, 476)))
 
 SGPstateData[["MO"]][["Achievement"]][["Levels"]] <-
 	list(
@@ -6347,25 +6310,21 @@ SGPstateData[["MO"]][["Assessment_Program_Information"]] <-
 			Abbreviation="MDESE",
 			URL="www.dese.mo.gov/MOSIS/MCDS_pilot-student-growth.html",
 			Contact="573-751-4212"),
-		Content_Areas=c("Mathematics", "Communication Arts"),
-		Grades_Tested=c(3,4,5,6,7,8,10,11),
+		Content_Areas=c("Mathematics", "ELA"),
+		Grades_Tested=c(3,4,5,6,7,8),
 		Test_Season="Spring",
-		Test_Vendor="CTB/McGraw Hill")
-#		CSEM=Missouri_CSEM)
+		Test_Vendor="DRC")
 
 SGPstateData[["MO"]][["Student_Report_Information"]] <-
 	list(
-		Vertical_Scale=list(MATHEMATICS=TRUE, COMMUNICATION_ARTS=TRUE),
-		Content_Areas_Labels=list(MATHEMATICS="Math", COMMUNICATION_ARTS="Comm Arts"),
-		Grades_Reported=list(MATHEMATICS=c(3,4,5,6,7,8), COMMUNICATION_ARTS=c(3,4,5,6,7,8)),
+		Vertical_Scale=list(MATHEMATICS=TRUE, ELA=TRUE),
+		Content_Areas_Labels=list(MATHEMATICS="Math", ELA="ELA"),
+		Grades_Reported=list(MATHEMATICS=c(3,4,5,6,7,8), ELA=c(3,4,5,6,7,8)),
 		Achievement_Level_Labels=list(
 			"Below Basic"="Below Basic",
 			"Basic"="Basic",
 			"Proficient"="Proficient",
 			"Advanced"="Advanced"))
-
-SGPstateData[["MO"]][["SGP_Configuration"]] <- list(state.multiple.year.summary=5)
-
 
 #########################################################
 ### NCSC (National Center and State Collaborative) South Dakota
@@ -7691,7 +7650,8 @@ SGPstateData[["NM"]][["Assessment_Program_Information"]] <-
 		Grades_Tested=c(3,4,5,6,7,8),
 		Assessment_Years=c("2022", "2023", "2024"),
 		Test_Season="Spring",
-		Test_Vendor="Cambium")
+		Test_Vendor="Cambium",
+		CSEM="SCALE_SCORE_CSEM")
 
 SGPstateData[["NM"]][["Student_Report_Information"]] <-
 	list(
@@ -7708,6 +7668,13 @@ SGPstateData[["NM"]][["Student_Report_Information"]] <-
 			"Near Proficient"="Nearing Proficiency",
 			"Proficient"="Proficient",
 			"Advanced"="Advanced"))
+
+SGPstateData[["NM"]][["SGP_Configuration"]] <- list(
+	round.digits=6L,
+	return.norm.group.scale.scores=TRUE,
+	print.other.gp=TRUE,
+	sgp.loss.hoss.adjustment="NM"
+)
 
 SGPstateData[["NM"]][["Variable_Name_Lookup"]] <- read.csv("Variable_Name_Lookup/NM_Variable_Name_Lookup.csv", colClasses=c(rep("character",4), "logical"))
 
@@ -8265,8 +8232,8 @@ SGPstateData[["RLI_UK"]][["Variable_Name_Lookup"]] <- read.csv("Variable_Name_Lo
 
 ### RHODE ISLAND (Original meta-data with RIDE/PARCC)
 
-#load("Knots_Boundaries/RI_Knots_Boundaries.Rdata")
-#SGPstateData[["RI_ORIGINAL"]][["Achievement"]][["Knots_Boundaries"]] <- RI_Knots_Boundaries
+load("Knots_Boundaries/RI_Knots_Boundaries.Rdata")
+SGPstateData[["RI_ORIGINAL"]][["Achievement"]][["Knots_Boundaries"]] <- RI_Knots_Boundaries
 
 #SGPstateData[["RI_ORIGINAL"]][["Achievement"]][["Knots_Boundaries"]] <-
 #	list(
@@ -8446,7 +8413,7 @@ SGPstateData[["RI_ORIGINAL"]][["SGP_Configuration"]] <- list(
 #load("Baseline_Coefficient_Matrices/RI/RI_Baseline_Matrices.Rdata")
 #SGPstateData[["RI_ORIGINAL"]][["Baseline_splineMatrix"]][["Coefficient_Matrices"]][["READING.BASELINE"]] <- RI_Baseline_Matrices[["READING.BASELINE"]]
 #SGPstateData[["RI_ORIGINAL"]][["Baseline_splineMatrix"]][["Coefficient_Matrices"]][["MATHEMATICS.BASELINE"]] <- RI_Baseline_Matrices[["MATHEMATICS.BASELINE"]]
-SGPstateData[["RI_ORIGINAL"]][["Variable_Name_Lookup"]] <- read.csv("Variable_Name_Lookup/RI_Variable_Name_Lookup.csv", colClasses=c(rep("character", 4), "logical"))
+#SGPstateData[["RI_ORIGINAL"]][["Variable_Name_Lookup"]] <- read.csv("Variable_Name_Lookup/RI_Variable_Name_Lookup.csv", colClasses=c(rep("character", 4), "logical"))
 
 
 ### RHODE ISLAND (USED for STATE ANALYSES in 2016)
@@ -8771,6 +8738,18 @@ SGPstateData[["RI"]][["Student_Report_Information"]] <-
 			"Exceeding"="Exceeding Expectations"))
 
 SGPstateData[["RI"]][["Variable_Name_Lookup"]] <- read.csv("Variable_Name_Lookup/RICAS_Variable_Name_Lookup.csv", colClasses=c(rep("character", 4), "logical"))
+
+#####################################################
+### RI_OLD (TEMP for custom analysis)
+#####################################################
+load("Knots_Boundaries/RI_Original_Meta_Data.Rdata")
+SGPstateData[["RI_OLD"]][["Achievement"]] <- RI_Original_Meta_Data[["Achievement"]]
+SGPstateData[["RI_OLD"]][["Growth"]] <- RI_Original_Meta_Data[["Growth"]]
+SGPstateData[["RI_OLD"]][["Assessment_Program_Information"]] <- RI_Original_Meta_Data[["Assessment_Program_Information"]]
+SGPstateData[["RI_OLD"]][["Student_Report_Information"]] <- RI_Original_Meta_Data[["Student_Report_Information"]]
+SGPstateData[["RI_OLD"]][["SGP_Configuration"]] <- RI_Original_Meta_Data[["SGP_Configuration"]]
+
+
 
 #########################################################
 ### SOUTH DAKOTA
