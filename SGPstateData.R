@@ -9055,7 +9055,7 @@ SGPstateData[["UT"]][["SGP_Configuration"]] <-
 		sgp.cohort.size = 2000, # per A. Brough 9/19/25 email
 		print.other.gp = TRUE,
 		return.norm.group.scale.scores=TRUE,
-		sgp.less.than.sgp.cohort.size.return="<3000",
+		sgp.less.than.sgp.cohort.size.return="<2000",
 		max.order.for.percentile=5,
 		max.order.for.projection=5, # All available SAGE per R.R. 8/13/18
 		sgp.projections.use.only.complete.matrices=FALSE,
@@ -9077,6 +9077,36 @@ SGPstateData[["UT"]][["Assessment_Program_Information"]] <-
 		Test_Season="Spring",
 		Assessment_Years=c("2014", "2015", "2016", "2017", "2018", "2019", "2021"),
 		Test_Vendor="Questar/Pearson")
+
+
+SGPstateData[["UT"]][["Assessment_Program_Information"]][["Assessment_Transition"]] <- list(
+    Assessment_Abbreviation = c("RISE", "UA+"),
+    Assessment_Abbreviation.2025 = c("RISE", "UA+"),
+    Assessment_Name = c("Readiness Improvement Success Empowerment", "Utah Aspire Plus"),
+    Assessment_Name.2025 = c("Readiness Improvement Success Empowerment", "Utah Aspire Plus"),
+    Achievement_Levels = list(
+        Labels = c("Below", "Approaching", "Proficient", "Highly"),
+        Proficient = c("Not Proficient", "Not Proficient", "Proficient", "Proficient")),
+    Achievement_Levels.2025 = list(
+        Labels = c("Below", "Approaching", "Proficient", "Highly"),
+        Proficient = c("Not Proficient", "Not Proficient", "Proficient", "Proficient")),
+    Achievement_Level_Labels = list(
+        "Below" = "Below",
+        "Approaching" = "Approaching",
+        "Proficient" = "Proficient",
+        "Highly" = "Highly"),
+    Achievement_Level_Labels.2025 = list(
+        "Below" = "Below",
+        "Approaching" = "Approaching",
+        "Proficient" = "Proficient",
+        "Highly" = "Highly"),
+    Content_Areas_Labels = list(ELA = "ELA"), # MATHEMATICS = "Math", SCIENCE = "Science"),
+    Content_Areas_Labels.2025 = list(ELA = "ELA"), # MATHEMATICS = "Math", 
+    Vertical_Scale = "No",
+    Vertical_Scale.2025 = "No",
+    Grades_Tested = 3:10,
+    Grades_Tested.2025 = 3:10,
+    Year = "2025")
 
 
 SGPstateData[["UT"]][["Student_Report_Information"]] <- list(
